@@ -115,7 +115,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						}
 						saveUserIdToCookie(request, response, String.valueOf(userId));
 					}
-					response.sendRedirect("/home");
+					response.sendRedirect("/cart");
+                    response.setContentType("text/css");
 				}).failureUrl("/security/login");
 
 		// Cấu hình đăng nhập oauth2

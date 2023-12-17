@@ -12,7 +12,7 @@
 	<groupId>hcmute</groupId>
 	<artifactId>project</artifactId>
 	<version>1.0</version>
-    <packaging>war</packaging>
+    <!-- <packaging>war</packaging> -->
 	<name>project</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -125,9 +125,6 @@
 			<artifactId>mysql-socket-factory</artifactId>
 			<version>1.0.4</version>
 		</dependency>
-
-
-
 	</dependencies>
 
 	<build>
@@ -149,6 +146,13 @@
             <artifactId>spring-boot-maven-plugin</artifactId>
             <configuration>
                 <mainClass>hcmute.ProjectApplication</mainClass>
+                 <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
             </configuration>
         </plugin>
 		<plugin>
@@ -165,11 +169,10 @@
             <artifactId>appengine-maven-plugin</artifactId>
             <version>2.4.4</version>
             <configuration>
-                <version>my-version</version>
+                <version>new-version</version>
                 <projectId>GCLOUD_CONFIG</projectId>
             </configuration>
         </plugin>
     </plugins>
 	</build>
-
 </project>

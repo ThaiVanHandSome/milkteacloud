@@ -3,6 +3,7 @@ package hcmute.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
@@ -13,5 +14,11 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/security/login").setViewName("security/login");
 		registry.addViewController("/").setViewName("security/login");
 	}
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/user/css/**")
+                .addResourceLocations("classpath:/static/user/css/");
+    }
 
 }

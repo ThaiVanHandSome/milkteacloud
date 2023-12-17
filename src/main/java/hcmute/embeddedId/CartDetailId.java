@@ -9,9 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 @Embeddable
 public class CartDetailId implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -24,5 +21,40 @@ public class CartDetailId implements Serializable {
 	
 	@Column(name = "size", columnDefinition = "nvarchar(50)")
 	private String size;
+
+    public int getIdCart() {
+		return idCart;
+	}
+
+	public void setIdCart(int idCart) {
+		this.idCart = idCart;
+	}
+
+	public int getIdMilkTea() {
+		return idMilkTea;
+	}
+
+	public void setIdMilkTea(int idMilkTea) {
+		this.idMilkTea = idMilkTea;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public CartDetailId(int idCart, int idMilkTea, String size) {
+		super();
+		this.idCart = idCart;
+		this.idMilkTea = idMilkTea;
+		this.size = size;
+	}
+
+	public CartDetailId() {
+		super();
+	}
 	
 }

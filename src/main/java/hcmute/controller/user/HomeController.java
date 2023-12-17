@@ -31,7 +31,6 @@ import hcmute.service.IUserService;
 import hcmute.service.impl.SessionServiceImpl;
 
 @Controller
-@SessionAttributes("user")
 public class HomeController {
 	@Autowired
 	IMilkTeaService milkTeaService;
@@ -41,7 +40,7 @@ public class HomeController {
     ICartDetailService cartDetailService;
 	@Autowired
 	SessionServiceImpl sessionService;
-	@GetMapping("home")
+	@GetMapping(value = "home", produces = "text/css")
 	public String LoadData(ModelMap model, HttpSession session) {
 		List<MilkTeaEntity> list1 = milkTeaService.findFiveProductOutstanding();
 		model.addAttribute("list1", list1);
