@@ -17,9 +17,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @ToString
 @Table(name = "roles")
 public class RoleEntity implements Serializable {
@@ -27,4 +24,25 @@ public class RoleEntity implements Serializable {
 	@Id
 	private String id;
 	private String name;
+
+    public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public RoleEntity(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	public RoleEntity() {
+		super();
+	}
 }

@@ -9,9 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Embeddable
 public class BranchMilkTeaId implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -23,4 +20,39 @@ public class BranchMilkTeaId implements Serializable {
 	
 	@Column(name = "size", columnDefinition = "nvarchar(50)")
 	private String size;
+
+    public BranchMilkTeaId(int idBranch, int idMilkTea, String size) {
+		super();
+		this.idBranch = idBranch;
+		this.idMilkTea = idMilkTea;
+		this.size = size;
+	}
+
+	public BranchMilkTeaId() {
+		super();
+	}
+
+	public int getIdBranch() {
+		return idBranch;
+	}
+
+	public void setIdBranch(int idBranch) {
+		this.idBranch = idBranch;
+	}
+
+	public int getIdMilkTea() {
+		return idMilkTea;
+	}
+
+	public void setIdMilkTea(int idMilkTea) {
+		this.idMilkTea = idMilkTea;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
 }

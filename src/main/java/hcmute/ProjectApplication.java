@@ -15,11 +15,11 @@ public class ProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectApplication.class, args);
 	}
-	@Bean
-	public FilterRegistrationBean<CustomSiteMeshFilter> siteMeshFilter(){
-		FilterRegistrationBean<CustomSiteMeshFilter> filterRegistrationBean = new FilterRegistrationBean<CustomSiteMeshFilter>();
-		filterRegistrationBean.setFilter(new CustomSiteMeshFilter());
-		filterRegistrationBean.addUrlPatterns("/*");
-		return filterRegistrationBean;
-	}
+	// @Bean
+	// public FilterRegistrationBean<CustomSiteMeshFilter> siteMeshFilter(){
+	// 	FilterRegistrationBean<CustomSiteMeshFilter> filterRegistrationBean = new FilterRegistrationBean<CustomSiteMeshFilter>();
+	// 	filterRegistrationBean.setFilter(new CustomSiteMeshFilter());
+	// 	filterRegistrationBean.addUrlPatterns("/*");
+	// 	return filterRegistrationBean;
+	// }
 }

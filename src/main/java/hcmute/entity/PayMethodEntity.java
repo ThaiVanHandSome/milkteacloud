@@ -8,9 +8,6 @@ import javax.persistence.*;
 
 import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "pay_method")
 public class PayMethodEntity implements Serializable{
@@ -25,4 +22,39 @@ public class PayMethodEntity implements Serializable{
 	
 	@OneToMany(mappedBy = "payMethodByOrder")
 	private Set<OrderEntity> orders;
+
+    public String getIdPayMethod() {
+		return idPayMethod;
+	}
+
+	public void setIdPayMethod(String idPayMethod) {
+		this.idPayMethod = idPayMethod;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Set<OrderEntity> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<OrderEntity> orders) {
+		this.orders = orders;
+	}
+
+	public PayMethodEntity(String idPayMethod, String name, Set<OrderEntity> orders) {
+		super();
+		this.idPayMethod = idPayMethod;
+		this.name = name;
+		this.orders = orders;
+	}
+
+	public PayMethodEntity() {
+		super();
+	}
 }

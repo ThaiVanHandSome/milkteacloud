@@ -6,9 +6,6 @@ import java.util.Set;
 import javax.persistence.*;
 import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "milk_tea_category")
 public class MilkTeaCategoryEntity implements Serializable{
@@ -24,5 +21,40 @@ public class MilkTeaCategoryEntity implements Serializable{
 	
 	@OneToMany(mappedBy = "milkTeaCategoryByMilkTeaType")
 	private Set<MilkTeaTypeEntity> milkTeaTypes;
+
+    public int getIdCategory() {
+		return idCategory;
+	}
+
+	public void setIdCategory(int idCategory) {
+		this.idCategory = idCategory;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Set<MilkTeaTypeEntity> getMilkTeaTypes() {
+		return milkTeaTypes;
+	}
+
+	public void setMilkTeaTypes(Set<MilkTeaTypeEntity> milkTeaTypes) {
+		this.milkTeaTypes = milkTeaTypes;
+	}
+
+	public MilkTeaCategoryEntity(int idCategory, String name, Set<MilkTeaTypeEntity> milkTeaTypes) {
+		super();
+		this.idCategory = idCategory;
+		this.name = name;
+		this.milkTeaTypes = milkTeaTypes;
+	}
+
+	public MilkTeaCategoryEntity() {
+		super();
+	}
 
 }

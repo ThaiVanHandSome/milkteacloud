@@ -12,7 +12,7 @@
 	<groupId>hcmute</groupId>
 	<artifactId>project</artifactId>
 	<version>1.0</version>
-	<packaging>war</packaging>
+    <packaging>war</packaging>
 	<name>project</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -127,6 +127,7 @@
 		</dependency>
 
 
+
 	</dependencies>
 
 	<build>
@@ -135,9 +136,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<image>
-						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
-					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -146,29 +144,32 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version> <!-- Đảm bảo bạn sử dụng phiên bản này
-				hoặc phiên bản tương thích -->
-				<configuration>
-					<source>11</source>
-					<target>11</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>2.4.4</version>
-				<configuration>
-					<deploy.projectId>milkteacloud-408213</deploy.projectId>
-        			<deploy.version>1</deploy.version>
-        			<!-- Cấu hình đường dẫn tới tệp app.yaml -->
-        			<deploy.yamlPath>src/main/appengine/app.yaml</deploy.yamlPath>
-				</configuration>
-			</plugin>
-			
-		</plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>hcmute.ProjectApplication</mainClass>
+            </configuration>
+        </plugin>
+		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version> <!-- Use a valid version -->
+            <configuration>
+                <source>1.8</source> <!-- Set the source Java version -->
+                <target>1.8</target> <!-- Set the target Java version -->
+            </configuration>
+        </plugin>
+		<plugin>
+            <groupId>com.google.cloud.tools</groupId>
+            <artifactId>appengine-maven-plugin</artifactId>
+            <version>2.4.4</version>
+            <configuration>
+                <version>my-version</version>
+                <projectId>GCLOUD_CONFIG</projectId>
+            </configuration>
+        </plugin>
+    </plugins>
 	</build>
 
 </project>
